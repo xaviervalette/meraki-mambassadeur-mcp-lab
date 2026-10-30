@@ -266,7 +266,8 @@ Si tout fonctionne, un résumé du réseau et des alertes est publié dans votre
 
 </details>
 
-## Utiliser un autre client MCP
+<details>
+<summary><h2>Utiliser un autre client MCP</h2></summary>
 
 Les URL et les tokens sont les mêmes partout. Voici deux exemples pour Meraki, que vous pouvez adapter aux deux autres serveurs.
 
@@ -287,16 +288,24 @@ bearer_token_env_var = "MERAKI_API_KEY"
 > [!NOTE]
 > Ces commandes changent d'une version à l'autre. En cas de doute, regardez la documentation de votre client à la rubrique « remote MCP » ou « streamable HTTP ».
 
-## Documentation officielle
+</details>
+
+<details>
+<summary><h2>Documentation officielle</h2></summary>
 
 - [Mistral : MCP](https://docs.mistral.ai/guides/mcp/)
 - [ThousandEyes MCP Server](https://docs.thousandeyes.com/product-documentation/integration-guides/thousandeyes-mcp-server)
 - [Meraki MCP Server](https://developer.cisco.com/meraki/api-v1/mcp-server/)
 - [Webex Messaging MCP Server](https://developer.webex.com/mcp/docs/messaging-mcp-server)
 
-## Avant de partir
+</details>
+
+<details>
+<summary><h2>Avant de partir</h2></summary>
 
 1. Supprimez les trois connecteurs dans **Contexte**, puis **Connecteurs**.
 2. Supprimez l'intégration Webex depuis **My Webex Apps**.
 
 L'animateur révoque les clés du lab à la fin de la session.
+
+</details>
