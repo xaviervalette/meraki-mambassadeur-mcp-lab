@@ -252,9 +252,8 @@ Si tout fonctionne, un résumé du réseau et des alertes est publié dans votre
 > [!NOTE]
 > Commencer chaque prompt par « Utilise uniquement le serveur MCP … » évite que le modèle aille chercher la réponse ailleurs. Et rappeler « ne modifie rien » ne coûte rien, même avec des clés en lecture seule.
 
----
-
-## Si ça coince
+<details>
+<summary><h2>Si ça coince</h2></summary>
 
 | Ce que vous voyez | Cause probable | Ce qu'il faut faire |
 |---|---|---|
@@ -264,6 +263,8 @@ Si tout fonctionne, un résumé du réseau et des alertes est publié dans votre
 | Token Webex refusé | Personal Access Token expiré (12 h) | Régénérez-le sur developer.webex.com et mettez à jour le connecteur |
 | Le connecteur n'est pas proposé dans le chat | Il n'est pas activé pour cette conversation | Activez-le dans le sélecteur d'outils de la conversation |
 | Le modèle utilise le mauvais outil | Le prompt est trop vague | Commencez par « Utilise uniquement le serveur MCP … » |
+
+</details>
 
 ## Utiliser un autre client MCP
 
