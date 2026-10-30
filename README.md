@@ -36,7 +36,7 @@ Comptez environ 45 minutes :
 
 ## Schéma du lab
 
-<img width="901" height="455" alt="Schéma du lab" src="https://github.com/user-attachments/assets/b91a5adb-8fa4-4853-b6d4-818e7c773060" />
+<p align="center"><img width="901" height="455" alt="Schéma du lab" src="https://github.com/user-attachments/assets/b91a5adb-8fa4-4853-b6d4-818e7c773060" /></p>
 
 ---
 
@@ -46,9 +46,9 @@ Comptez environ 45 minutes :
 2. Dans le menu de gauche, ouvrez **Contexte**, puis **Connecteurs**.
 3. Cliquez sur **Nouveau connecteur**, puis sur **Nouveau connecteur personnalisé**.
 
-![Page Connecteurs de Mistral Vibe](images/01-mistral-connecteurs.png)
+<p align="center"><img src="images/01-mistral-connecteurs.png" alt="Page Connecteurs de Mistral Vibe"></p>
 
-![Marketplace des connecteurs, bouton Nouveau connecteur personnalisé](images/02-mistral-marketplace.jpg)
+<p align="center"><img src="images/02-mistral-marketplace.jpg" alt="Marketplace des connecteurs, bouton Nouveau connecteur personnalisé"></p>
 
 Pour chaque serveur, Mistral vous demande trois informations :
 
@@ -69,7 +69,7 @@ Pour chaque serveur, Mistral vous demande trois informations :
    - Authentification : *Authentification par token API*
    - Bearer : `<TOKEN_THOUSANDEYES>`
 
-   <img src="images/03-thousandeyes-connecteur.png" alt="Formulaire du connecteur ThousandEyes" width="450">
+   <p align="center"><img src="images/03-thousandeyes-connecteur.png" alt="Formulaire du connecteur ThousandEyes" width="450"></p>
 
 3. Enregistrez, puis vérifiez que le statut indique une connexion valide.
 
@@ -133,15 +133,15 @@ Pour Webex, on passe par une intégration OAuth. C'est un peu plus long que pour
 
 1. Connectez-vous sur [developer.webex.com](https://developer.webex.com), cliquez sur votre avatar, puis sur **My Webex Apps**.
 
-   <img src="images/04-webex-menu-profil.png" alt="Menu du profil Webex Developer, lien My Webex Apps" width="250">
+   <p align="center"><img src="images/04-webex-menu-profil.png" alt="Menu du profil Webex Developer, lien My Webex Apps" width="250"></p>
 
 2. Cliquez sur **Create New App**.
 
-   ![Page My Webex Apps, bouton Create New App](images/05-webex-my-apps.png)
+   <p align="center"><img src="images/05-webex-my-apps.png" alt="Page My Webex Apps, bouton Create New App"></p>
 
 3. Choisissez **Integration** en cliquant sur **Onboard Integration**.
 
-   ![Choix du type d'app, Onboard Integration](images/06-webex-onboard-integration.png)
+   <p align="center"><img src="images/06-webex-onboard-integration.png" alt="Choix du type d'app, Onboard Integration"></p>
 
 4. Remplissez :
    - Integration Name : `Mistral Vibe Webex Messaging Lab`
@@ -162,7 +162,7 @@ Pour Webex, on passe par une intégration OAuth. C'est un peu plus long que pour
 
 1. En haut à gauche, cliquez sur **Vibe** et basculez sur **Studio**.
 
-   <img src="images/07-mistral-studio.png" alt="Bascule de Vibe vers Studio" width="250">
+   <p align="center"><img src="images/07-mistral-studio.png" alt="Bascule de Vibe vers Studio" width="250"></p>
 
 2. Dans le menu de gauche, ouvrez **Connecteurs**, puis **Nouveau connecteur** et **Nouveau connecteur personnalisé**.
 3. Serveur : `https://mcp.webexapis.com/mcp/webex-messaging`
@@ -174,11 +174,11 @@ Pour Webex, on passe par une intégration OAuth. C'est un peu plus long que pour
 
    Votre configuration doit ressembler à ça :
 
-   ![Connecteur Webex configuré en OAuth 2.1 dans Mistral Studio](images/08-webex-connecteur-oauth.png)
+   <p align="center"><img src="images/08-webex-connecteur-oauth.png" alt="Connecteur Webex configuré en OAuth 2.1 dans Mistral Studio"></p>
 
 6. Cliquez sur **Créer**. Webex vous demande alors d'autoriser Mistral Vibe : cliquez sur **Accept**.
 
-   <img src="images/09-webex-autorisation.png" alt="Écran d'autorisation Webex" width="300">
+   <p align="center"><img src="images/09-webex-autorisation.png" alt="Écran d'autorisation Webex" width="300"></p>
 
 > [!NOTE]
 > Le connecteur s'appelle ici **Webexapis**. C'est ce nom qu'on utilise dans les prompts.
