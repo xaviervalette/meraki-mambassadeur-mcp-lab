@@ -6,6 +6,12 @@
 
 Dans ce lab, on branche trois serveurs MCP Cisco sur Mistral Vibe avec un simple compte gratuit, puis on les interroge en français, comme on parlerait à un collègue.
 
+
+
+<p align="center"><img width="901" height="455" alt="image" src="https://github.com/user-attachments/assets/37b4a3a0-ced2-4e71-b13b-cc217bfe2794" /></p>
+
+
+
 Comptez environ 45 minutes :
 
 <table>
