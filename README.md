@@ -7,13 +7,38 @@ Dans ce lab, on branche trois serveurs MCP Cisco sur Mistral Vibe avec un simple
 
 Comptez environ 45 minutes :
 
-| Étape | Contenu | Durée |
-|---|---|---|
-| 0 | Préparer Mistral Vibe | 5 min |
-| 1 | ThousandEyes | 10 min |
-| 2 | Meraki | 10 min |
-| 3 | Webex Messaging | 15 min |
-| 4 | Les trois ensemble | 5 min |
+<table>
+  <tr>
+    <th width="150" align="left">Étape</th>
+    <th width="700" align="left">Contenu</th>
+    <th width="150" align="left">Durée</th>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>Préparer Mistral Vibe</td>
+    <td>5 min</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>ThousandEyes</td>
+    <td>10 min</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Meraki</td>
+    <td>10 min</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Webex Messaging</td>
+    <td>15 min</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>Les trois ensemble</td>
+    <td>5 min</td>
+  </tr>
+</table>
 
 > [!IMPORTANT]
 > Ce dépôt ne contient aucun token ni aucune clé API. L'animateur vous les donne le jour du lab. Quand vous voyez `<...>` dans le guide, remplacez-le par la valeur qu'il vous a remise.
@@ -23,11 +48,24 @@ Comptez environ 45 minutes :
 
 ## Les endpoints
 
-| Service | URL |
-|---|---|
-| ThousandEyes | `https://api.thousandeyes.com/mcp` |
-| Meraki | `https://mcp.meraki.com/mcp` |
-| Webex Messaging | `https://mcp.webexapis.com/mcp/webex-messaging` |
+<table>
+  <tr>
+    <th width="300" align="left">Service</th>
+    <th width="700" align="left">URL</th>
+  </tr>
+  <tr>
+    <td>ThousandEyes</td>
+    <td><code>https://api.thousandeyes.com/mcp</code></td>
+  </tr>
+  <tr>
+    <td>Meraki</td>
+    <td><code>https://mcp.meraki.com/mcp</code></td>
+  </tr>
+  <tr>
+    <td>Webex Messaging</td>
+    <td><code>https://mcp.webexapis.com/mcp/webex-messaging</code></td>
+  </tr>
+</table>
 
 ## Ce qu'il vous faut
 
