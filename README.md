@@ -36,7 +36,8 @@ Comptez environ 45 minutes :
 
 ## Schéma du lab
 
-<p align="center"><img width="901" height="455" alt="Schéma du lab" src="https://github.com/user-attachments/assets/b91a5adb-8fa4-4853-b6d4-818e7c773060" /></p>
+<p align="center"><img width="901" height="455" alt="image" src="https://github.com/user-attachments/assets/0f05b7b1-ffbb-4178-ad2d-ff553a49e00a" />
+</p>
 
 ---
 
