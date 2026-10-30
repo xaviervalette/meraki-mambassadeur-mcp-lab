@@ -3,14 +3,23 @@
 </p>
 
 # Lab M'Ambassadeurs : ThousandEyes, Meraki et Webex dans Mistral Vibe
+<br>
+
+## Introduction
+
+### Les contributeurs
+
+<p align="center"><img width="494" height="171" alt="image" src="https://github.com/user-attachments/assets/5ed4c0c9-be78-4926-9cde-a6c58eddc9a0" /></p>
+
+
+### L'objectif
 
 Dans ce lab, on branche trois serveurs MCP Cisco sur Mistral Vibe avec un simple compte gratuit, puis on les interroge en français, comme on parlerait à un collègue.
-
-
 
 <p align="center"><img width="901" height="455" alt="image" src="https://github.com/user-attachments/assets/37b4a3a0-ced2-4e71-b13b-cc217bfe2794" /></p>
 
 
+### L'agenda
 
 Comptez environ 45 minutes :
 
@@ -46,46 +55,17 @@ Comptez environ 45 minutes :
     <td>5 min</td>
   </tr>
 </table>
+<br>
 
-> [!IMPORTANT]
-> Ce dépôt ne contient aucun token ni aucune clé API. L'animateur vous les donne le jour du lab. Quand vous voyez `<...>` dans le guide, remplacez-le par la valeur qu'il vous a remise.
+
+### Les prérequis
+
+- [ ] Un compte gratuit Mistral AI pour accéder à Mistral Vibe ([chat.mistral.ai](https://chat.mistral.ai)). Un navigateur suffit.
+- [ ] Un compte Webex
 
 > [!TIP]
 > Vous préférez un autre outil ? Si vous avez déjà vos habitudes avec Claude Code, Codex, Cursor ou VS Code, gardez-les. Les trois serveurs MCP sont des endpoints HTTP standards et marchent avec n'importe quel client MCP. Seule l'interface change, pas les URL ni les tokens. Quelques exemples sont donnés à la fin du guide, dans [Utiliser un autre client MCP](#utiliser-un-autre-client-mcp).
 
-## Les endpoints
-
-<table>
-  <tr>
-    <th width="300" align="left">Service</th>
-    <th width="700" align="left">URL</th>
-  </tr>
-  <tr>
-    <td>ThousandEyes</td>
-    <td><code>https://api.thousandeyes.com/mcp</code></td>
-  </tr>
-  <tr>
-    <td>Meraki</td>
-    <td><code>https://mcp.meraki.com/mcp</code></td>
-  </tr>
-  <tr>
-    <td>Webex Messaging</td>
-    <td><code>https://mcp.webexapis.com/mcp/webex-messaging</code></td>
-  </tr>
-</table>
-
-## Ce qu'il vous faut
-
-- [ ] Un compte gratuit Mistral AI pour accéder à Mistral Vibe ([chat.mistral.ai](https://chat.mistral.ai)). Un navigateur suffit.
-- [ ] Un token ThousandEyes qui a la permission *API Access*. Il est fourni pour le lab.
-- [ ] Une clé API Meraki Dashboard. Elle est aussi fournie.
-- [ ] Un compte Webex, et une intégration OAuth créée depuis votre profil [developer.webex.com](https://developer.webex.com).
-- [ ] Un espace Webex de test sans rien de sensible dedans, par exemple « M'Ambassadeurs ».
-
-## Schéma du lab
-
-<p align="center"><img width="901" height="455" alt="image" src="https://github.com/user-attachments/assets/0f05b7b1-ffbb-4178-ad2d-ff553a49e00a" />
-</p>
 
 <br>
 <br>
@@ -106,6 +86,8 @@ Pour chaque serveur, Mistral vous demande trois informations :
 - **L'URL du serveur MCP**.
 - **La méthode d'authentification**, soit un token (`Authorization: Bearer <TOKEN>`), soit OAuth.
 
+> [!IMPORTANT]
+> Ce dépôt ne contient aucun token ni aucune clé API. L'animateur vous les donne le jour du lab. Quand vous voyez `<...>` dans le guide, remplacez-le par la valeur qu'il vous a remise.
 <br>
 <br>
 
