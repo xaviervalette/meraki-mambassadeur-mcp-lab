@@ -32,17 +32,17 @@ Comptez environ 45 minutes :
   </tr>
   <tr>
     <td>Étape 1</td>
-    <td><a href="#étape-1--thousandeyes">ThousandEyes</a></td>
+    <td><a href="#étape-1--connecter-thousandeyes">Connecter ThousandEyes</a></td>
     <td>10 min</td>
   </tr>
   <tr>
     <td>Étape 2</td>
-    <td><a href="#étape-2--meraki">Meraki</a></td>
+    <td><a href="#étape-2--connecter-meraki">Connecter Meraki</a></td>
     <td>10 min</td>
   </tr>
   <tr>
     <td>Étape 3</td>
-    <td><a href="#étape-3--webex-messaging">Webex Messaging</a></td>
+    <td><a href="#étape-3--connecter-webex-messaging">Connecter Webex Messaging</a></td>
     <td>15 min</td>
   </tr>
   <tr>
@@ -87,7 +87,7 @@ Pour chaque serveur, Mistral vous demande trois informations :
 <br>
 <br>
 
-## Étape 1 : ThousandEyes
+## Étape 1 : Connecter ThousandEyes
 
 ### Créer le connecteur
 
@@ -118,7 +118,7 @@ Vous devriez voir apparaître de vrais tests ThousandEyes. Si ça ne marche pas,
 <br>
 <br>
 
-## Étape 2 : Meraki
+## Étape 2 : Connecter Meraki
 
 ### La clé API
 
@@ -154,7 +154,7 @@ Vous devriez obtenir la liste des organisations et des networks accessibles. Si 
 <br>
 <br>
 
-## Étape 3 : Webex Messaging
+## Étape 3 : Connecter Webex Messaging
 
 Endpoint : `https://mcp.webexapis.com/mcp/webex-messaging`
 
