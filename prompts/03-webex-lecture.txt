@@ -1,0 +1,1 @@
+Utilise uniquement le serveur MCP webex-messaging. Liste les espaces Webex auxquels j'ai accès et retourne au maximum les cinq premiers, avec leur titre. N'envoie aucun message.

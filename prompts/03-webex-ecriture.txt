@@ -1,0 +1,1 @@
+Utilise uniquement le serveur MCP webex-messaging. Envoie le message « Bonjour depuis Mistral Vibe 👋 » dans l'espace Webex « M'Ambassadeurs », et uniquement dans cet espace.
