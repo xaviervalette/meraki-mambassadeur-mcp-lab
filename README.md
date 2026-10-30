@@ -273,15 +273,3 @@ bearer_token_env_var = "MERAKI_API_KEY"
 2. Supprimez l'intégration Webex depuis **My Webex Apps**.
 
 L'animateur révoque les clés du lab à la fin de la session.
-
----
-
-## Contribuer
-
-Avant chaque commit, lancez le contrôle anti-fuite :
-
-```bash
-./scripts/check-secrets.sh
-```
-
-Il refuse le commit s'il trouve quelque chose qui ressemble à une clé Meraki, un token ThousandEyes ou un token Webex. Tous les prompts du lab sont aussi disponibles séparément dans [`prompts/`](prompts/).
