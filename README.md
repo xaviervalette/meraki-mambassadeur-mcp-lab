@@ -1,3 +1,6 @@
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=900&size=25&pause=1000&color=0032FF&width=600&lines=Quels+sont+mes+alertes+ThousandEyes+%3F;Quels+sont+les+changements+Meraki+%3F;Envoi+le+rapport+d'audit+sur+Webex)](https://git.io/typing-svg)
+
+
 # Lab M'Ambassadeurs : ThousandEyes, Meraki et Webex dans Mistral Vibe
 
 Dans ce lab, on branche trois serveurs MCP Cisco sur Mistral Vibe avec un simple compte gratuit, puis on les interroge en français, comme on parlerait à un collègue.
