@@ -1,1 +1,1 @@
-Utilise uniquement le serveur MCP webex-messaging. Envoie le message « Bonjour depuis Mistral Vibe 👋 » dans l'espace Webex « M'Ambassadeurs », et uniquement dans cet espace.
+Utilise exclusivement le serveur MCP Webexapis. Dans l'espace Webex « M'Ambassadeurs », envoie : « Test Mistral Vibe MCP : message envoyé avec succès. » Vérifie que l'espace ciblé correspond exactement à ce nom. N'envoie rien ailleurs. Indique si l'outil confirme la création du message et retourne son identifiant si disponible.

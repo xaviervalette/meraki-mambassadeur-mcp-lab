@@ -1,5 +1,5 @@
 1. Avec le serveur MCP meraki, liste les réseaux de la première organisation accessible (cinq maximum).
 2. Avec le serveur MCP thousandeyes, liste les alertes actives (cinq maximum).
 3. Rédige un résumé de cinq lignes maximum de l'état du réseau et des alertes.
-4. Avec le serveur MCP webex-messaging, publie ce résumé dans l'espace « M'Ambassadeurs ».
+4. Avec le serveur MCP Webexapis, publie ce résumé dans l'espace « M'Ambassadeurs ».
 N'effectue aucune modification sur Meraki ni sur ThousandEyes.
