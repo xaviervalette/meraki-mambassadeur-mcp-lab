@@ -7,10 +7,6 @@
 
 ## Introduction
 
-### Les contributeurs
-
-<p align="center"><img width="494" height="171" alt="image" src="https://github.com/user-attachments/assets/5ed4c0c9-be78-4926-9cde-a6c58eddc9a0" /></p>
-
 
 ### L'objectif
 
