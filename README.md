@@ -26,28 +26,28 @@ Comptez environ 45 minutes :
     <th width="150" align="left">Durée</th>
   </tr>
   <tr>
-    <td>0</td>
-    <td>Préparer Mistral Vibe</td>
+    <td>Étape 0</td>
+    <td><a href="#étape-0--préparer-mistral-vibe">Préparer Mistral Vibe</a></td>
     <td>5 min</td>
   </tr>
   <tr>
-    <td>1</td>
-    <td>ThousandEyes</td>
+    <td>Étape 1</td>
+    <td><a href="#étape-1--thousandeyes">ThousandEyes</a></td>
     <td>10 min</td>
   </tr>
   <tr>
-    <td>2</td>
-    <td>Meraki</td>
+    <td>Étape 2</td>
+    <td><a href="#étape-2--meraki">Meraki</a></td>
     <td>10 min</td>
   </tr>
   <tr>
-    <td>3</td>
-    <td>Webex Messaging</td>
+    <td>Étape 3</td>
+    <td><a href="#étape-3--webex-messaging">Webex Messaging</a></td>
     <td>15 min</td>
   </tr>
   <tr>
-    <td>4</td>
-    <td>Les trois ensemble</td>
+    <td>Étape 4</td>
+    <td><a href="#étape-4--les-trois-ensemble">Les trois ensemble</a></td>
     <td>5 min</td>
   </tr>
 </table>
@@ -66,7 +66,7 @@ Comptez environ 45 minutes :
 <br>
 <br>
 
-## Étape 0 : préparer Mistral Vibe
+## Étape 0 : Préparer Mistral Vibe
 
 1. Connectez-vous sur [chat.mistral.ai](https://chat.mistral.ai).
 2. Dans le menu de gauche, ouvrez **Contexte**, puis **Connecteurs**.
@@ -235,7 +235,7 @@ Le message doit apparaître dans l'espace. Si ce n'est pas le cas, vérifiez que
 <br>
 <br>
 
-## Étape 4 : les trois ensemble
+## Étape 4 : Les trois ensemble
 
 Une seule demande suffit pour faire travailler les trois connecteurs :
 
