@@ -1,4 +1,6 @@
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=900&size=25&duration=4000&pause=1000&color=0032FF&center=true&vCenter=true&width=600&lines=Quels+sont+mes+alertes+ThousandEyes+%3F;Quels+sont+les+changements+Meraki+%3F;Envoi+le+rapport+d'audit+sur+Webex)](https://git.io/typing-svg)
+<p align="center">
+  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=900&size=25&duration=4000&pause=1000&color=0032FF&center=true&vCenter=true&width=600&lines=Quels+sont+mes+alertes+ThousandEyes+%3F;Quels+sont+les+changements+Meraki+%3F;Envoi+le+rapport+d'audit+sur+Webex" alt="Typing SVG"></a>
+</p>
 
 # Lab M'Ambassadeurs : ThousandEyes, Meraki et Webex dans Mistral Vibe
 
