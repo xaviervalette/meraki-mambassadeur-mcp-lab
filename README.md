@@ -32,6 +32,10 @@ Connecter trois serveurs MCP Cisco à Mistral Vibe (compte gratuit), puis les in
 - [ ] **Webex** : compte Webex + intégration OAuth créée sur votre profil [developer.webex.com](https://developer.webex.com).
 - [ ] **Espace Webex de test** sans contenu sensible, par exemple « M'Ambassadeurs ».
 
+
+## Schéma du lab
+<img width="901" height="455" alt="image" src="https://github.com/user-attachments/assets/b91a5adb-8fa4-4853-b6d4-818e7c773060" />
+
 ---
 
 ## Étape 0 — Préparer Mistral Vibe (5 min)
