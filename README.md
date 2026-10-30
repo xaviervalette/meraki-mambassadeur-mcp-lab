@@ -39,7 +39,8 @@ Comptez environ 45 minutes :
 <p align="center"><img width="901" height="455" alt="image" src="https://github.com/user-attachments/assets/0f05b7b1-ffbb-4178-ad2d-ff553a49e00a" />
 </p>
 
----
+<br>
+<br>
 
 ## Étape 0 : préparer Mistral Vibe
 
@@ -57,7 +58,8 @@ Pour chaque serveur, Mistral vous demande trois informations :
 - **L'URL du serveur MCP**.
 - **La méthode d'authentification**, soit un token (`Authorization: Bearer <TOKEN>`), soit OAuth.
 
----
+<br>
+<br>
 
 ## Étape 1 : ThousandEyes
 
@@ -87,7 +89,8 @@ Utilise uniquement le serveur MCP thousandeyes. Liste les tests ThousandEyes con
 
 Vous devriez voir apparaître de vrais tests ThousandEyes. Si ça ne marche pas, vérifiez d'abord que le token a bien la permission *API Access*.
 
----
+<br>
+<br>
 
 ## Étape 2 : Meraki
 
@@ -122,7 +125,8 @@ Utilise uniquement le serveur MCP meraki. Recherche les organisations et réseau
 
 Vous devriez obtenir la liste des organisations et des networks accessibles. Si rien ne remonte, vérifiez que la clé a été copiée en entier (elle fait 40 caractères) et que l'accès API est activé sur l'organisation.
 
----
+<br>
+<br>
 
 ## Étape 3 : Webex Messaging
 
@@ -202,7 +206,8 @@ Utilise exclusivement le serveur MCP Webexapis. Dans l'espace Webex « M'Ambassa
 
 Le message doit apparaître dans l'espace. Si ce n'est pas le cas, vérifiez que le scope `spark:messages_write` est coché, côté Webex comme côté Mistral, et que vous faites bien partie de l'espace.
 
----
+<br>
+<br>
 
 ## Étape 4 : les trois ensemble
 
