@@ -1,3 +1,4 @@
+
 <p align="center">
   <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=900&size=25&duration=4000&pause=1000&color=FF0000&center=true&vCenter=true&width=600&lines=Quels+sont+mes+alertes+ThousandEyes+%3F;Quels+sont+les+changements+Meraki+%3F;Envoi+le+rapport+d'audit+sur+Webex" alt="Typing SVG"></a>
 </p>
@@ -57,17 +58,15 @@ Comptez environ 45 minutes :
 
 ### Les prérequis
 
-- [ ] Un compte gratuit Mistral AI pour accéder à Mistral Vibe ([chat.mistral.ai](https://chat.mistral.ai)). Un navigateur suffit.
 - [ ] Un compte Webex
-
-> [!TIP]
-> Vous préférez un autre outil ? Si vous avez déjà vos habitudes avec Claude Code, Codex, Cursor ou VS Code, gardez-les. Les trois serveurs MCP sont des endpoints HTTP standards et marchent avec n'importe quel client MCP. Seule l'interface change, pas les URL ni les tokens. Quelques exemples sont donnés à la fin du guide, dans [Utiliser un autre client MCP](#utiliser-un-autre-client-mcp).
 
 
 <br>
 <br>
 
 ## Étape 0 : Préparer Mistral Vibe
+> [!TIP]
+> Vous préférez un autre harnais ? Si vous avez déjà vos habitudes avec Claude Code, Codex, Cursor ou VS Code, gardez-les. Les trois serveurs MCP sont des endpoints HTTP standards et marchent avec n'importe quel client MCP. Seule l'interface change, pas les URL ni les tokens. Quelques exemples sont donnés à la fin du guide, dans [Utiliser un autre client MCP](#utiliser-un-autre-client-mcp).
 
 1. Connectez-vous sur [chat.mistral.ai](https://chat.mistral.ai).
 2. Dans le menu de gauche, ouvrez **Contexte**, puis **Connecteurs**.
