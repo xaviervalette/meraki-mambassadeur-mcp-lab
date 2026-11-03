@@ -241,6 +241,25 @@ Pour Webex, on passe par une intégration OAuth. C'est un peu plus long que pour
 > [!NOTE]
 > Le connecteur s'appelle ici **Webexapis**. C'est ce nom qu'on utilise dans les prompts.
 
+### Valider chaque envoi avant qu'il parte
+
+> [!WARNING]
+> **L'intégration Webex agit en votre nom.** Un message envoyé par le connecteur part avec votre nom et votre photo, exactement comme si vous l'aviez tapé vous-même. En cliquant sur **Accept**, vous avez autorisé Mistral Vibe à publier et supprimer des messages dans tous vos espaces, et à écrire en direct à n'importe qui à partir de son adresse email.
+
+Dans ce lab, on laisse le modèle choisir l'espace et rédiger le texte. C'est pratique pour découvrir l'outil, mais ça veut dire qu'un prompt mal compris peut envoyer un message au mauvais endroit, à votre nom.
+
+La bonne pratique : passer tous les outils interactifs, ceux qui agissent, en **Demander**. Avant chaque action, Vibe affiche alors une fenêtre avec l'outil appelé et ses paramètres exacts : l'espace visé, le destinataire, le texte. Vous approuvez ou vous refusez. Rien ne part sans votre clic.
+
+1. Dans **Studio**, ouvrez **Connecteurs**, puis le connecteur **Webexapis**.
+2. Dans **Outils**, réglez **Interactif** sur **Demander**.
+
+<p align="center"><img src="images/12-webex-outils-interactifs.png" alt="Outils interactifs du connecteur Webexapis réglés sur Demander dans Mistral Studio" width="700"></p>
+
+Vous pouvez aller plus loin, comme pour ThousandEyes. Le lab n'a besoin que de **Webex Create Message**. Bloquez les outils qui n'ont rien à faire ici : modifier un message, créer ou modifier un espace, gérer les membres, partager des fichiers. Une partie d'entre eux échouerait de toute façon, puisque les scopes `spark:rooms_write` et `spark:memberships_write` n'ont pas été accordés. Mais un outil bloqué, le modèle n'essaie même pas de l'utiliser.
+
+> [!TIP]
+> **En production, on ne laisse pas ce choix au modèle.** L'identifiant de l'espace est fixé en dur, le format du message est imposé, et seul le contenu varie. Pour des notifications automatiques, on utilise plutôt un bot Webex : les messages partent au nom du bot, clairement identifié, et il ne peut écrire que dans les espaces où on l'a ajouté. Ici, on garde de la souplesse pour les besoins du lab.
+
 ### Tester en lecture
 
 Avant ce test, publiez à la main un message témoin dans l'espace « M'Ambassadeurs », par exemple `TEST-MISTRAL-MCP-2026`. Revenez ensuite dans Mistral Vibe :
@@ -256,6 +275,8 @@ Vous devez récupérer le nom et l'identifiant de l'espace.
 ```text
 Utilise exclusivement le serveur MCP Webexapis. Dans l'espace Webex « M'Ambassadeurs », envoie : « Test Mistral Vibe MCP : message envoyé avec succès. » Vérifie que l'espace ciblé correspond exactement à ce nom. N'envoie rien ailleurs. Indique si l'outil confirme la création du message et retourne son identifiant si disponible.
 ```
+
+Si vous avez réglé les outils interactifs sur **Demander**, Vibe vous montre le message avant de l'envoyer. Vérifiez l'espace et le texte, puis approuvez.
 
 Le message doit apparaître dans l'espace. Si ce n'est pas le cas, vérifiez que le scope `spark:messages_write` est coché, côté Webex comme côté Mistral, et que vous faites bien partie de l'espace.
 
