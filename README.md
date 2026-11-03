@@ -104,6 +104,34 @@ Pour chaque serveur, Mistral vous demande trois informations :
 > [!NOTE]
 > Collez le token seul. Mistral ajoute lui-même le mot `Bearer`.
 
+### Ne garder que les outils utiles
+
+Le serveur MCP ThousandEyes expose 54 outils : 36 en lecture seule, et 18 « interactifs » qui peuvent créer, modifier ou supprimer des tests, des alertes ou des dashboards. Pour ce lab, on a besoin de trois outils seulement :
+
+- `list_tests` pour lister les tests configurés ;
+- `list_alerts` pour récupérer les alertes actives ;
+- `list_alert_rules` pour voir les règles d'alerte.
+
+Une bonne pratique est de bloquer tous les autres. Les harnais récents, Vibe compris, ne chargent plus la description et le schéma de chaque outil dans le contexte dès le départ. Ils vont les chercher à la demande. Les 54 outils ne remplissent donc pas le contexte à chaque message. Mais le jour où le modèle ouvre le connecteur ThousandEyes, il voit toute la liste. Plus elle est courte, moins il a de chances de se tromper d'outil, et moins on consomme de contexte pour rien.
+
+Il y a aussi un argument de sécurité. Écrire « ne modifie rien » dans un prompt, c'est une consigne que le modèle respecte en général. Bloquer les 18 outils interactifs, c'est une garantie : même s'il le voulait, il ne pourrait pas supprimer un test.
+
+Pour filtrer :
+
+1. En haut à gauche, basculez de **Vibe** vers **Studio**.
+2. Ouvrez **Connectors**, puis le connecteur **ThousandEyes**.
+3. Dans **Tools**, passez **Interactive** en **Blocked**.
+4. Dans **Read-only**, bloquez tout, sauf `list_tests`, `list_alerts` et `list_alert_rules`.
+
+<p align="center"><img src="images/10-thousandeyes-filtrage-outils.png" alt="Filtrage des outils ThousandEyes dans Mistral Studio : seuls list_tests, list_alerts et list_alert_rules sont autorisés" width="750"></p>
+
+Pour vérifier, revenez dans Vibe et demandez « quels sont les outils ThousandEyes ? ». Vous devez retrouver vos trois outils.
+
+<p align="center"><img src="images/11-thousandeyes-outils-vibe.png" alt="Vibe liste les outils ThousandEyes disponibles après filtrage" width="650"></p>
+
+> [!NOTE]
+> Vibe affiche aussi un quatrième outil, `read_resource`. Il ne fait pas partie des 54 outils ThousandEyes : c'est la fonction standard d'un client MCP pour lire les documents qu'un serveur met à disposition. Le serveur ThousandEyes n'en propose aucun, donc vous pouvez l'ignorer.
+
 ### Tester
 
 Ouvrez une nouvelle conversation et collez ce prompt :
