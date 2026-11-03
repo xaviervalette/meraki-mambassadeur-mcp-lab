@@ -18,7 +18,7 @@ Dans ce lab, on branche trois serveurs MCP Cisco sur Mistral Vibe avec un simple
 
 ### L'agenda
 
-Comptez environ 55 minutes :
+Comptez environ 45 minutes :
 
 <table>
   <tr>
@@ -43,8 +43,8 @@ Comptez environ 55 minutes :
   </tr>
   <tr>
     <td>Étape 3</td>
-    <td><a href="#étape-3--connecter-webex-messaging">Connecter Webex Messaging</a></td>
-    <td>15 min</td>
+    <td><a href="#étape-3--connecter-webex">Connecter Webex</a></td>
+    <td>5 min</td>
   </tr>
   <tr>
     <td>Étape 4</td>
@@ -62,7 +62,7 @@ Comptez environ 55 minutes :
 
 ### Les prérequis
 
-- [ ] Un compte Webex
+- [ ] Un compte Webex, pour voir les messages arriver dans l'espace « M'Ambassadeurs ». Demandez à l'animateur de vous y ajouter.
 
 
 <br>
@@ -82,7 +82,7 @@ Comptez environ 55 minutes :
 
 Pour chaque serveur, Mistral vous demande trois informations :
 
-- **Un nom**, par exemple `ThousandEyes`, `Meraki` ou `Webex-Messaging`.
+- **Un nom**, par exemple `ThousandEyes`, `Meraki` ou `Webex`.
 - **L'URL du serveur MCP**.
 - **La méthode d'authentification**, soit un token (`Authorization: Bearer <TOKEN>`), soit OAuth.
 
@@ -124,6 +124,9 @@ Il y a aussi un argument de sécurité. Écrire « ne modifie rien » dans un pr
 Pour filtrer :
 
 1. En haut à gauche, basculez de **Vibe** vers **Studio**.
+
+   <p align="center"><img src="images/07-mistral-studio.png" alt="Bascule de Vibe vers Studio" width="250"></p>
+
 2. Ouvrez **Connectors**, puis le connecteur **ThousandEyes**.
 3. Dans **Tools**, passez **Interactive** en **Blocked**.
 4. Dans **Read-only**, bloquez tout, sauf `list_tests`, `list_alerts` et `list_alert_rules`.
@@ -200,106 +203,44 @@ Vous devriez obtenir la liste des organisations et des networks accessibles. Si 
 <br>
 <br>
 
-## Étape 3 : Connecter Webex Messaging
+## Étape 3 : Connecter Webex
 
-Endpoint : `https://mcp.webexapis.com/mcp/webex-messaging`
+Endpoint : `https://webex-bot-mcp.xvalette.com/mcp`
 
-Pour Webex, on passe par une intégration OAuth. C'est un peu plus long que pour les deux autres, mais la connexion ne tombe pas au bout de 12 heures.
-
-### Créer l'intégration côté Webex
-
-1. Connectez-vous sur [developer.webex.com](https://developer.webex.com), cliquez sur votre avatar, puis sur **My Webex Apps**.
-
-   <p align="center"><img src="images/04-webex-menu-profil.png" alt="Menu du profil Webex Developer, lien My Webex Apps" width="250"></p>
-
-2. Cliquez sur **Create New App**.
-
-   <p align="center"><img src="images/05-webex-my-apps.png" alt="Page My Webex Apps, bouton Create New App"></p>
-
-3. Choisissez **Integration** en cliquant sur **Onboard Integration**.
-
-   <p align="center"><img src="images/06-webex-onboard-integration.png" alt="Choix du type d'app, Onboard Integration"></p>
-
-4. Remplissez :
-   - Integration Name : `Mistral Vibe Webex Messaging Lab`
-   - Icon : celle que vous voulez
-   - App Hub Description : `Mistral Vibe Webex Messaging Lab`
-   - Redirect URL : `https://callback.mistral.ai/v1/integrations_auth/oauth2_callback`
-   - Scopes : `spark:mcp`, `spark:rooms_read`, `spark:messages_read`, `spark:messages_write`
-5. Cliquez sur **Add Integration**.
-6. Notez le **Client ID**, le **Client Secret** et l'**OAuth Authorization URL**.
-
-> [!TIP]
-> La liste des scopes est longue. Utilisez Ctrl+F (ou Cmd+F) pour retrouver les quatre plus vite.
-
-> [!CAUTION]
-> Webex n'affiche le Client Secret qu'une seule fois. Copiez-le tout de suite.
-
-### Créer le connecteur dans Mistral Studio
-
-1. En haut à gauche, cliquez sur **Vibe** et basculez sur **Studio**.
-
-   <p align="center"><img src="images/07-mistral-studio.png" alt="Bascule de Vibe vers Studio" width="250"></p>
-
-2. Dans le menu de gauche, ouvrez **Connecteurs**, puis **Nouveau connecteur** et **Nouveau connecteur personnalisé**.
-3. Serveur : `https://mcp.webexapis.com/mcp/webex-messaging`
-4. Quelques secondes plus tard, une deuxième fenêtre s'ouvre. Renseignez :
-   - le Client ID ;
-   - le Client Secret ;
-   - l'URL d'autorisation, en remplaçant la valeur proposée par l'OAuth Authorization URL copiée chez Webex.
-5. Dans **Portées OAuth**, décochez `spark:rooms_write`, `spark:memberships_write`, `spark:memberships_read`, `spark:webhooks_write` et `spark:webhooks_read`. Il doit rester `spark:mcp`, `spark:messages_write`, `spark:messages_read` et `spark:rooms_read`.
-
-   Votre configuration doit ressembler à ça :
-
-   <p align="center"><img src="images/08-webex-connecteur-oauth.png" alt="Connecteur Webex configuré en OAuth 2.1 dans Mistral Studio"></p>
-
-6. Cliquez sur **Créer**. Webex vous demande alors d'autoriser Mistral Vibe : cliquez sur **Accept**.
-
-   <p align="center"><img src="images/09-webex-autorisation.png" alt="Écran d'autorisation Webex" width="300"></p>
+Pour Webex, on n'utilise pas le serveur MCP officiel de Cisco, mais un serveur MCP écrit pour le lab. Son code est dans ce dépôt, dans le dossier [`mcp/webex`](mcp/webex/README.md).
 
 > [!NOTE]
-> Le connecteur s'appelle ici **Webexapis**. C'est ce nom qu'on utilise dans les prompts.
+> **Pourquoi un serveur MCP custom ?** Il y a deux raisons.
+>
+> 1. **Les comptes Webex gratuits n'ont pas accès au serveur MCP officiel.**
+> 2. **On voulait des garde-fous solides.** Le serveur officiel donne au modèle l'accès à toute votre messagerie : il peut écrire dans n'importe quel espace, ou en direct à n'importe qui, en votre nom. Notre serveur n'expose qu'un seul outil, `send_webex_message`, qui prend un seul paramètre : le texte du message. L'identifiant de l'espace est fixé en dur dans la configuration du serveur, et le message part au nom d'un bot, pas au vôtre. Le modèle ne peut donc écrire que dans l'espace « M'Ambassadeurs », quoi qu'on lui demande.
 
-### Valider chaque envoi avant qu'il parte
+### Créer le connecteur
 
-> [!WARNING]
-> **L'intégration Webex agit en votre nom.** Un message envoyé par le connecteur part avec votre nom et votre photo, exactement comme si vous l'aviez tapé vous-même. En cliquant sur **Accept**, vous avez autorisé Mistral Vibe à publier et supprimer des messages dans tous vos espaces, et à écrire en direct à n'importe qui à partir de son adresse email.
+1. Allez dans **Contexte**, puis **Connecteurs**, puis **Nouveau connecteur**, puis **Nouveau connecteur personnalisé**.
+2. Remplissez :
+   - Nom : `Webex`
+   - Serveur : `https://webex-bot-mcp.xvalette.com/mcp`
+   - Authentification : *Authentification par token API*
+   - Bearer : `<TOKEN_MCP_WEBEX>`, fourni par l'animateur
 
-Dans ce lab, on laisse le modèle choisir l'espace et rédiger le texte. C'est pratique pour découvrir l'outil, mais ça veut dire qu'un prompt mal compris peut envoyer un message au mauvais endroit, à votre nom.
+   <p align="center"><img src="images/13-webex-connecteur-custom.png" alt="Connecteur Webex personnalisé dans Mistral Vibe, authentification par token API" width="750"></p>
 
-La bonne pratique : passer tous les outils interactifs, ceux qui agissent, en **Demander**. Avant chaque action, Vibe affiche alors une fenêtre avec l'outil appelé et ses paramètres exacts : l'espace visé, le destinataire, le texte. Vous approuvez ou vous refusez. Rien ne part sans votre clic.
-
-1. Dans **Studio**, ouvrez **Connecteurs**, puis le connecteur **Webexapis**.
-2. Dans **Outils**, réglez **Interactif** sur **Demander**.
-
-<p align="center"><img src="images/12-webex-outils-interactifs.png" alt="Outils interactifs du connecteur Webexapis réglés sur Demander dans Mistral Studio" width="700"></p>
-
-Vous pouvez aller plus loin, comme pour ThousandEyes. Le lab n'a besoin que de **Webex Create Message**. Bloquez les outils qui n'ont rien à faire ici : modifier un message, créer ou modifier un espace, gérer les membres, partager des fichiers. Une partie d'entre eux échouerait de toute façon, puisque les scopes `spark:rooms_write` et `spark:memberships_write` n'ont pas été accordés. Mais un outil bloqué, le modèle n'essaie même pas de l'utiliser.
+3. Cliquez sur **Ajouter un connecteur**.
 
 > [!TIP]
-> **En production, on ne laisse pas ce choix au modèle.** L'identifiant de l'espace est fixé en dur, le format du message est imposé, et seul le contenu varie. Pour des notifications automatiques, on utilise plutôt un bot Webex : les messages partent au nom du bot, clairement identifié, et il ne peut écrire que dans les espaces où on l'a ajouté. Ici, on garde de la souplesse pour les besoins du lab.
->
-> Le dossier [`mcp/webex`](mcp/webex/README.md) contient un exemple de ce type de serveur : un serveur MCP minimal avec un seul outil, qui publie via un bot dans un espace fixé dans sa configuration.
+> L'espace est verrouillé, mais c'est toujours le modèle qui rédige le texte. Pour relire chaque message avant qu'il parte, ouvrez le connecteur **Webex** dans **Studio** et réglez l'outil `send_webex_message` sur **Demander**. Vibe vous montrera alors le message, et vous pourrez l'approuver ou le refuser.
 
-### Tester en lecture
-
-Avant ce test, publiez à la main un message témoin dans l'espace « M'Ambassadeurs », par exemple `TEST-MISTRAL-MCP-2026`. Revenez ensuite dans Mistral Vibe :
+### Tester
 
 ```text
-Utilise exclusivement le serveur MCP Webexapis. Recherche l'espace Webex dont le nom exact est « M'Ambassadeurs ». Retourne uniquement son nom et son identifiant technique. Ne liste pas les autres espaces et n'effectue aucune action d'écriture. Si l'espace n'est pas trouvé, indique-le sans élargir la recherche.
+Utilise uniquement le serveur MCP Webex. Envoie le message « Test Mistral Vibe MCP : message envoyé avec succès. » et indique si l'outil confirme l'envoi.
 ```
 
-Vous devez récupérer le nom et l'identifiant de l'espace.
+Le message doit apparaître dans l'espace « M'Ambassadeurs », publié par le bot. Pas besoin de préciser l'espace dans le prompt : le serveur le connaît déjà.
 
-### Tester en écriture
-
-```text
-Utilise exclusivement le serveur MCP Webexapis. Dans l'espace Webex « M'Ambassadeurs », envoie : « Test Mistral Vibe MCP : message envoyé avec succès. » Vérifie que l'espace ciblé correspond exactement à ce nom. N'envoie rien ailleurs. Indique si l'outil confirme la création du message et retourne son identifiant si disponible.
-```
-
-Si vous avez réglé les outils interactifs sur **Demander**, Vibe vous montre le message avant de l'envoyer. Vérifiez l'espace et le texte, puis approuvez.
-
-Le message doit apparaître dans l'espace. Si ce n'est pas le cas, vérifiez que le scope `spark:messages_write` est coché, côté Webex comme côté Mistral, et que vous faites bien partie de l'espace.
+> [!TIP]
+> Vous voulez faire tourner le même serveur avec votre propre bot et votre propre espace ? Tout est expliqué dans [`mcp/webex/README.md`](mcp/webex/README.md) : création du bot, configuration, lancement avec `uv` et exposition avec un tunnel Cloudflare.
 
 <br>
 <br>
@@ -312,11 +253,11 @@ Une seule demande suffit pour faire travailler les trois connecteurs :
 1. Avec le serveur MCP meraki, liste les réseaux de la première organisation accessible (cinq maximum).
 2. Avec le serveur MCP thousandeyes, liste les alertes actives (cinq maximum).
 3. Rédige un résumé de cinq lignes maximum de l'état du réseau et des alertes.
-4. Avec le serveur MCP Webexapis, publie ce résumé dans l'espace « M'Ambassadeurs ».
+4. Avec le serveur MCP Webex, publie ce résumé.
 N'effectue aucune modification sur Meraki ni sur ThousandEyes.
 ```
 
-Si tout fonctionne, un résumé du réseau et des alertes est publié dans votre espace Webex.
+Si tout fonctionne, un résumé du réseau et des alertes est publié dans l'espace Webex « M'Ambassadeurs ».
 
 > [!NOTE]
 > Commencer chaque prompt par « Utilise uniquement le serveur MCP … » évite que le modèle aille chercher la réponse ailleurs. Et rappeler « ne modifie rien » ne coûte rien, même avec des clés en lecture seule.
@@ -366,7 +307,7 @@ La réponse doit suivre cinq parties, dans cet ordre : alertes actives, santé d
 > Pour retrouver le nom de l'agent, le skill peut avoir besoin de l'outil ThousandEyes `get_test`. Si vous l'avez bloqué à l'étape 1 et que le skill bloque à cet endroit, débloquez-le : c'est un outil en lecture seule.
 
 > [!TIP]
-> Le skill ne fait que lire. Pour aller plus loin, demandez-lui ensuite de publier son analyse dans l'espace « M'Ambassadeurs » avec le connecteur Webexapis. Vous retrouverez alors la fenêtre de validation réglée à l'étape 3.
+> Le skill ne fait que lire. Pour aller plus loin, demandez-lui ensuite de publier son analyse dans l'espace « M'Ambassadeurs » avec le connecteur Webex. Si vous avez réglé `send_webex_message` sur **Demander** à l'étape 3, vous pourrez relire le message avant qu'il parte.
 
 <details>
 <summary><h2>Si ça coince</h2></summary>
@@ -375,8 +316,7 @@ La réponse doit suivre cinq parties, dans cet ordre : alertes actives, santé d
 |---|---|---|
 | Connecteur en « Échec de connexion » | URL ou header incorrect | Vérifiez l'URL HTTPS du serveur MCP, puis le token |
 | `401 Unauthorized` | Le token est mal copié | Recollez-le seul, sans `Bearer ` ni espace autour |
-| `403 Forbidden` | Il manque un droit | ThousandEyes : *API Access*. Meraki : accès API activé. Webex : les scopes |
-| Token Webex refusé | Personal Access Token expiré (12 h) | Régénérez-le sur developer.webex.com et mettez à jour le connecteur |
+| `403 Forbidden` | Il manque un droit | ThousandEyes : *API Access*. Meraki : accès API activé. Webex : le token MCP fourni par l'animateur |
 | Le connecteur n'est pas proposé dans le chat | Il n'est pas activé pour cette conversation | Activez-le dans le sélecteur d'outils de la conversation |
 | Le modèle utilise le mauvais outil | Le prompt est trop vague | Commencez par « Utilise uniquement le serveur MCP … » |
 
@@ -412,7 +352,8 @@ bearer_token_env_var = "MERAKI_API_KEY"
 - [Mistral : MCP](https://docs.mistral.ai/guides/mcp/)
 - [ThousandEyes MCP Server](https://docs.thousandeyes.com/product-documentation/integration-guides/thousandeyes-mcp-server)
 - [Meraki MCP Server](https://developer.cisco.com/meraki/api-v1/mcp-server/)
-- [Webex Messaging MCP Server](https://developer.webex.com/mcp/docs/messaging-mcp-server)
+- [FastMCP](https://gofastmcp.com), utilisé pour le serveur MCP Webex du lab
+- [Webex : créer un bot](https://developer.webex.com/messaging/docs/bots)
 
 </details>
 
@@ -420,7 +361,6 @@ bearer_token_env_var = "MERAKI_API_KEY"
 <summary><h2>Avant de partir</h2></summary>
 
 1. Supprimez les trois connecteurs dans **Contexte**, puis **Connecteurs**.
-2. Supprimez l'intégration Webex depuis **My Webex Apps**.
 
 L'animateur révoque les clés du lab à la fin de la session.
 

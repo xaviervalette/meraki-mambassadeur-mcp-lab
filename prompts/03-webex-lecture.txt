@@ -1,1 +1,0 @@
-Utilise exclusivement le serveur MCP Webexapis. Recherche l'espace Webex dont le nom exact est « M'Ambassadeurs ». Retourne uniquement son nom et son identifiant technique. Ne liste pas les autres espaces et n'effectue aucune action d'écriture. Si l'espace n'est pas trouvé, indique-le sans élargir la recherche.

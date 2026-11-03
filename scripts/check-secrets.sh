@@ -11,7 +11,7 @@ patterns=(
 
 found=0
 for p in "${patterns[@]}"; do
-  if git grep -nIE "$p" -- . ':!scripts/check-secrets.sh'; then found=1; fi
+  if git grep -nIE "$p" -- . ':!scripts/check-secrets.sh' ':!*.lock'; then found=1; fi
 done
 
 if [ "$found" -eq 1 ]; then

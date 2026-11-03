@@ -6,7 +6,7 @@ Un serveur MCP minimal, écrit avec [FastMCP](https://gofastmcp.com) et géré a
 |---|---|---|
 | `send_webex_message` | `message` | Publie `message` (Markdown accepté) dans l'espace Webex configuré |
 
-C'est l'approche « production » évoquée à l'[étape 3](../../README.md#valider-chaque-envoi-avant-quil-parte) : l'espace et le bot sont fixés dans la configuration, seul le contenu du message varie. Le modèle ne peut ni choisir un autre espace, ni écrire en votre nom.
+C'est l'approche « production » utilisée à l'[étape 3](../../README.md#étape-3--connecter-webex) : l'espace et le bot sont fixés dans la configuration, seul le contenu du message varie. Le modèle ne peut ni choisir un autre espace, ni écrire en votre nom.
 
 ## Prérequis
 
@@ -24,7 +24,7 @@ cp .env.example .env
 Renseignez ensuite dans `.env` :
 
 - `WEBEX_BOT_TOKEN` : le token du bot ;
-- `WEBEX_ROOM_ID` : l'identifiant de l'espace (par exemple récupéré avec le prompt de lecture de l'étape 3) ;
+- `WEBEX_ROOM_ID` : l'identifiant de l'espace (listez les espaces dont le bot est membre avec `curl -s -H "Authorization: Bearer $WEBEX_BOT_TOKEN" https://webexapis.com/v1/rooms`) ;
 - `MCP_AUTH_TOKEN` : le token que les clients MCP devront présenter. Générez-le avec `openssl rand -hex 32` ;
 - `MCP_HOST` et `MCP_PORT` (facultatifs) : l'adresse d'écoute, `127.0.0.1:8000` par défaut.
 
