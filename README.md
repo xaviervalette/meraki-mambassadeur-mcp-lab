@@ -18,7 +18,7 @@ Dans ce lab, on branche trois serveurs MCP Cisco sur Mistral Vibe avec un simple
 
 ### L'agenda
 
-Comptez environ 45 minutes :
+Comptez environ 55 minutes :
 
 <table>
   <tr>
@@ -50,6 +50,11 @@ Comptez environ 45 minutes :
     <td>Étape 4</td>
     <td><a href="#étape-4--les-trois-ensemble">Les trois ensemble</a></td>
     <td>5 min</td>
+  </tr>
+  <tr>
+    <td>Étape 5</td>
+    <td><a href="#étape-5--installer-le-skill-de-triage">Installer le skill de triage</a></td>
+    <td>10 min</td>
   </tr>
 </table>
 <br>
@@ -313,6 +318,53 @@ Si tout fonctionne, un résumé du réseau et des alertes est publié dans votre
 
 > [!NOTE]
 > Commencer chaque prompt par « Utilise uniquement le serveur MCP … » évite que le modèle aille chercher la réponse ailleurs. Et rappeler « ne modifie rien » ne coûte rien, même avec des clés en lecture seule.
+
+<br>
+<br>
+
+## Étape 5 : Installer le skill de triage
+
+Jusqu'ici, on a écrit chaque prompt à la main. Un skill permet d'enregistrer une méthode une fois pour toutes. Celui-ci, [`te-meraki-alert-triage`](skills/te-meraki-alert-triage/SKILL.md), prend en charge une alerte ThousandEyes de bout en bout :
+
+1. il liste les alertes actives ;
+2. il retrouve le réseau Meraki qui porte le nom de l'agent ThousandEyes en alerte ;
+3. il vérifie l'état des liens WAN et des équipements de ce réseau ;
+4. il cherche les changements de configuration et les événements survenus dans les 5 à 10 minutes avant l'alerte ;
+5. il conclut avec une cause probable et des actions recommandées.
+
+Vibe ne charge que le nom et la description du skill au démarrage. Les instructions complètes ne sont lues que lorsqu'une demande correspond, exactement comme pour les outils MCP.
+
+### Créer le skill dans Studio
+
+1. Ouvrez [`skills/te-meraki-alert-triage/SKILL.md`](skills/te-meraki-alert-triage/SKILL.md) et cliquez sur **Raw** pour afficher le texte brut.
+2. Dans **Studio**, ouvrez **Context**, puis **Skills**, et cliquez sur **New Skill**.
+3. Remplissez :
+   - **Title** : `te-meraki-alert-triage`
+   - **Description** : le texte du champ `description:` en haut du fichier
+   - **Instructions** : tout ce qui suit la deuxième ligne `---`
+4. Cliquez sur **Create Skill**.
+5. Sur la page du skill, cliquez sur **Publish to Vibe**. Sans cette étape, le skill reste visible dans Studio mais Vibe ne le voit pas.
+
+> [!IMPORTANT]
+> Le skill fait le lien entre les deux services grâce à une convention : **le réseau Meraki porte le même nom que l'agent ThousandEyes**. C'est le cas dans l'environnement du lab. Chez vous, si les noms ne correspondent pas, le skill vous demandera quel réseau analyser.
+
+### Tester
+
+Ouvrez une nouvelle conversation dans Vibe :
+
+```text
+J'ai reçu une alerte ThousandEyes, analyse-la.
+```
+
+Vous pouvez aussi appeler le skill directement en tapant `/te-meraki-alert-triage`.
+
+La réponse doit suivre cinq parties, dans cet ordre : alertes actives, santé des liens WAN, état des équipements, changements survenus avant l'alerte, recommandations.
+
+> [!NOTE]
+> Pour retrouver le nom de l'agent, le skill peut avoir besoin de l'outil ThousandEyes `get_test`. Si vous l'avez bloqué à l'étape 1 et que le skill bloque à cet endroit, débloquez-le : c'est un outil en lecture seule.
+
+> [!TIP]
+> Le skill ne fait que lire. Pour aller plus loin, demandez-lui ensuite de publier son analyse dans l'espace « M'Ambassadeurs » avec le connecteur Webexapis. Vous retrouverez alors la fenêtre de validation réglée à l'étape 3.
 
 <details>
 <summary><h2>Si ça coince</h2></summary>
