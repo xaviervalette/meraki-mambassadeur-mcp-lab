@@ -142,6 +142,20 @@ Utilise uniquement le serveur MCP thousandeyes. Liste les tests ThousandEyes con
 
 Vous devriez voir apparaître de vrais tests ThousandEyes. Si ça ne marche pas, vérifiez d'abord que le token a bien la permission *API Access*.
 
+> [!NOTE]
+> **Combien pèsent les 54 outils ?** Vous pouvez le mesurer vous-même. Un client MCP découvre les outils d'un serveur avec la méthode `tools/list`, et rien ne vous empêche de l'appeler à la main :
+>
+> ```bash
+> export TE_TOKEN="<TOKEN_THOUSANDEYES>"
+> curl -s https://api.thousandeyes.com/mcp \
+>   -H "Authorization: Bearer $TE_TOKEN" \
+>   -H "Content-Type: application/json" \
+>   -H "Accept: application/json, text/event-stream" \
+>   -d '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}' > thousandeyes-tools.txt
+> ```
+>
+> Collez ensuite le contenu du fichier dans un compteur de tokens comme le [tokenizer d'OpenAI](https://platform.openai.com/tokenizer). On obtient environ **54 000 tokens**, uniquement pour décrire les outils, avant même la première question. Les trois outils gardés pour le lab n'en pèsent qu'environ **4 000**.
+
 <br>
 <br>
 
