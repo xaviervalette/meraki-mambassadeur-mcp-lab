@@ -1,0 +1,10 @@
+[project]
+name = "mcp-webex"
+version = "0.1.0"
+description = "Serveur MCP minimal : envoi d'un message Webex via un bot"
+requires-python = ">=3.12"
+dependencies = [
+    "fastmcp>=4.1.6",
+    "httpx>=0.28.1",
+    "python-dotenv>=1.2.4",
+]

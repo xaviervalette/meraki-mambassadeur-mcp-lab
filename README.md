@@ -278,6 +278,8 @@ Vous pouvez aller plus loin, comme pour ThousandEyes. Le lab n'a besoin que de *
 
 > [!TIP]
 > **En production, on ne laisse pas ce choix au modèle.** L'identifiant de l'espace est fixé en dur, le format du message est imposé, et seul le contenu varie. Pour des notifications automatiques, on utilise plutôt un bot Webex : les messages partent au nom du bot, clairement identifié, et il ne peut écrire que dans les espaces où on l'a ajouté. Ici, on garde de la souplesse pour les besoins du lab.
+>
+> Le dossier [`mcp/webex`](mcp/webex/README.md) contient un exemple de ce type de serveur : un serveur MCP minimal avec un seul outil, qui publie via un bot dans un espace fixé dans sa configuration.
 
 ### Tester en lecture
 
