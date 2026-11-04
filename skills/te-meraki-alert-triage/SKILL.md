@@ -41,6 +41,13 @@ Use `semantic_search` (e.g. "device statuses in a network") then `execute_api` t
 4. Also fetch the network event log (`getNetworkEvents`) over the same window.
 5. For each change/event, compare its timestamp with the alert timestamp and compute the time delta; flag anything that correlates in time (configuration changes, firewall rules, firmware updates, reboots, uplink changes). State explicitly whether a change correlates with the alert.
 
+## Step 6 — Offer to send the report to the Webex space
+
+After presenting the report, **always** ask the user via `ask_user_question`: « Dois-je envoyer le résultat de l'analyse dans Webex ? » (options: Oui / Non).
+
+- **Non** → stop, done.
+- **Oui** → call `tools.webex_b159.send_webex_message({ message })` with the full report in Markdown (sequential format above), adapted for chat (concise, emojis for status). Webex Markdown is supported. Never send to Webex without the user's explicit confirmation.
+
 ## Rules
 
 - Never ask the user whether to investigate Meraki: it is always part of the analysis. Only ask for the network if the agent name cannot be matched.
